@@ -1,6 +1,11 @@
-4 bugs found that will break the app, plus 3 warnings. Here's exactly what to fix:
-Bug 1 (critical) — facilities.php and nearby.php are incomplete. Both files contain only the DB connection block — the actual SQL query and JSON output are missing. They're identical to db.php. These need to be rewritten with the real logic: facilities.php should SELECT * FROM facilities WHERE is_active=1 and nearby.php should run the Haversine SQL query with ?lat=&lng=&radius= params.
-Bug 2 (critical) — search returns zero results. search.php outputs { success, count, data: [...] } but api.js normalises by reading data.results (which is undefined). Change line 69 of api.js from data.results ?? [] to data.data ?? [].
-Bug 3 (build-breaker) — unused import in App.jsx. Line 12 imports useGeolocation but never calls it. With --max-warnings 0 in your lint script, npm run build will abort. Delete that import line.
-Bug 4 (routing broken) — no <BrowserRouter> or <Routes> anywhere. The pages use useParams/useNavigate but nothing wraps the app in a router. You need to either add <BrowserRouter><Routes><Route …/></Routes></BrowserRouter> in main.jsx, or simplify HomePage.jsx to not import App and instead wire routing properly.
-Warnings: rename env.local → .env.local (Vite ignores the missing dot silently), and remove the unused useState import from GeoButton.jsx (also a lint build-breaker).
+Now I have a complete picture. Here's the full audit report:**4 bugs found that will break the app, plus 3 warnings.** Here's exactly what to fix:
+
+**Bug 1 (critical) — `facilities.php` and `nearby.php` are incomplete.** Both files contain only the DB connection block — the actual SQL query and JSON output are missing. They're identical to `db.php`. These need to be rewritten with the real logic: `facilities.php` should `SELECT * FROM facilities WHERE is_active=1` and `nearby.php` should run the Haversine SQL query with `?lat=&lng=&radius=` params.
+
+**Bug 2 (critical) — search returns zero results.** `search.php` outputs `{ success, count, data: [...] }` but `api.js` normalises by reading `data.results` (which is `undefined`). Change line 69 of `api.js` from `data.results ?? []` to `data.data ?? []`.
+
+**Bug 3 (build-breaker) — unused import in `App.jsx`.** Line 12 imports `useGeolocation` but never calls it. With `--max-warnings 0` in your lint script, `npm run build` will abort. Delete that import line.
+
+**Bug 4 (routing broken) — no `<BrowserRouter>` or `<Routes>` anywhere.** The pages use `useParams`/`useNavigate` but nothing wraps the app in a router. You need to either add `<BrowserRouter><Routes><Route …/></Routes></BrowserRouter>` in `main.jsx`, or simplify `HomePage.jsx` to not import App and instead wire routing properly.
+
+**Warnings:** rename `env.local` → `.env.local` (Vite ignores the missing dot silently), and remove the unused `useState` import from `GeoButton.jsx` (also a lint build-breaker).
