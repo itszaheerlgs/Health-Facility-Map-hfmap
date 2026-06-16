@@ -11,6 +11,7 @@
 > _Map view with sidebar, stats bar, search, filters, and facility details._
 
 ![HFMap Preview](./preview.png)
+http://localhost:5174/
 
 ---
 
