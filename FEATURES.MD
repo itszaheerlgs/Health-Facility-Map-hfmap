@@ -351,3 +351,69 @@ Data from the [Department of Health — Health Facility Registry](https://hfr.do
 ---
 
 > _"Malapit na ang tulong."_ — Help is nearby.
+
+
+
+
+❤️ User Personalization
+
+ Save favorite / bookmarked facilities
+ Recent searches history
+
+
+🏥 Facility Info Upgrades
+
+ Photo gallery per facility
+ Community ratings and reviews
+ Report incorrect info button
+ "Is this open right now?" live status
+ Bed availability indicator (hospitals)
+ DOH license number display
+ QR code per facility for sharing
+
+
+🧭 Navigation & Directions
+
+ In-app turn-by-turn directions panel
+ Estimated travel time display
+ "Route to nearest facility" one-tap button
+
+
+📤 Sharing & Export
+
+ Share facility link (copy URL)
+ Share via SMS / social media
+ Printable facility info card
+ Export list as PDF or Excel
+
+
+⚙️ Admin Panel
+
+ Admin dashboard page
+ Facility count charts (bar / pie)
+ Coverage map (barangay coverage view)
+ Add / edit / delete facilities via admin form
+ Bulk import from DOH CSV
+ Auto-geocode missing coordinates
+ Audit log (who changed what)
+
+
+🔔 Alerts & Emergency
+
+ Browser push notifications for nearby facilities
+ Emergency mode (hospitals + 24hr only)
+
+
+📱 Mobile & PWA
+
+ PWA — install as mobile app
+ Offline mode with cached data
+
+
+♿ Accessibility & Language
+
+ Language toggle (Filipino / English)
+ Font size adjuster
+ Full keyboard navigation support
+ Screen reader / accessibility improvements
+
